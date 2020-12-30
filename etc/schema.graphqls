@@ -1,0 +1,99 @@
+# Mageplaza
+#
+# NOTICE OF LICENSE
+#
+# This source file is subject to the Mageplaza.com license that is
+# available through the world-wide-web at this URL:
+# https://www.mageplaza.com/LICENSE.txt
+#
+# DISCLAIMER
+#
+# Do not edit or add to this file if you wish to upgrade this extension to newer
+# version in the future.
+#
+# @category    Mageplaza
+# @package     Mageplaza_PromoBannerGraphQl
+# @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+# @license     https://www.mageplaza.com/LICENSE.txt
+
+type Query {
+    mpPromoBannerConfig: MpPromoBannerConfigOutput @resolver(class: "Mageplaza\\PromoBannerGraphQl\\Model\\Resolver\\Config") @doc(description: "Promo banner config information.")
+    mpPromoBannerByPage(
+        action_name: String!
+    ): MpPromoBannersOutput @resolver(class: "Mageplaza\\PromoBannerGraphQl\\Model\\Resolver\\PromoBanners") @doc(description: "Promo banners by page information.")
+}
+
+interface ProductInterface {
+    mp_promo_banners: MpPromoBannersOutput @resolver(class: "Mageplaza\\PromoBannerGraphQl\\Model\\Resolver\\Product") @doc(description: "Product promo banner information.")
+}
+
+interface CategoryInterface {
+    mp_promo_banners: MpPromoBannersOutput @resolver(class: "Mageplaza\\PromoBannerGraphQl\\Model\\Resolver\\Category") @doc(description: "Category promo banner information.")
+}
+
+type MpPromoBannersOutput {
+    items: [MpPromoBanner]
+}
+
+type MpPromoBanner {
+    banner_id: Int
+    name: String
+    status: Boolean
+    store_ids: String
+    customer_group_ids: String
+    category: String
+    from_date: String
+    to_date: String
+    priority: Int
+    type: String
+    banner_image: String
+    slider_images: String
+    cms_block_id: String
+    content: String
+    popup_image: String
+    popup_responsive: String
+    floating_image: String
+    url: String
+    position: String
+    floating_position: String
+    page: String
+    page_type: String
+    category_ids: String
+    show_product_page: String
+    auto_close_time: String
+    auto_reopen_time: String
+    updated_at: String
+    created_at: String
+}
+
+type MpPromoBannerConfigOutput {
+    general: MpPromoBannerGeneralConfig
+    slider_setting: MpPromoBannerSliderConfig
+    popup_setting: MpPromoBannerPopupConfig
+    floating_setting: MpPromoBannerFloatingConfig
+}
+
+type MpPromoBannerGeneralConfig {
+    promo_category: String
+    show_close_btn: Boolean
+    auto_close_time: String
+    auto_reopen_time: String
+}
+
+type MpPromoBannerSliderConfig {
+    show_buttons: Boolean
+    change_time: String
+}
+
+type MpPromoBannerPopupConfig {
+    popup_responsive: String
+    popup_width: String
+    popup_height: String
+    show_popup_checkbox: Boolean
+    checkbox_label: String
+}
+
+type MpPromoBannerFloatingConfig {
+    float_width: String
+    float_height: String
+}
