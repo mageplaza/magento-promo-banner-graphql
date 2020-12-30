@@ -23,11 +23,11 @@ declare(strict_types=1);
 
 namespace Mageplaza\PromoBannerGraphQl\Model\Resolver;
 
+use Exception;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
-use Mageplaza\PromoBanner\Helper\Data;
 use Mageplaza\PromoBanner\Model\Api\PromoBannerRepository;
 
 /**
@@ -37,11 +37,6 @@ use Mageplaza\PromoBanner\Model\Api\PromoBannerRepository;
 class PromoBanners implements ResolverInterface
 {
     /**
-     * @var Data
-     */
-    private $helperData;
-
-    /**
      * @var PromoBannerRepository
      */
     private $promoBannerRepository;
@@ -49,14 +44,11 @@ class PromoBanners implements ResolverInterface
     /**
      * Config constructor.
      *
-     * @param Data $helperData
      * @param PromoBannerRepository $promoBannerRepository
      */
     public function __construct(
-        Data $helperData,
         PromoBannerRepository $promoBannerRepository
     ) {
-        $this->helperData            = $helperData;
         $this->promoBannerRepository = $promoBannerRepository;
     }
 
@@ -71,7 +63,7 @@ class PromoBanners implements ResolverInterface
             return [
                 'items' => $promoBanners->getItems()
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new GraphQlInputException(__($e->getMessage()));
         }
     }

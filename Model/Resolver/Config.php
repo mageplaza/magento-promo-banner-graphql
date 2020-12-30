@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace Mageplaza\PromoBannerGraphQl\Model\Resolver;
 
+use Exception;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
@@ -71,7 +72,7 @@ class Config implements ResolverInterface
 
         try {
             return $this->promoBannerRepository->getConfig();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new GraphQlInputException(__($e->getMessage()));
         }
     }

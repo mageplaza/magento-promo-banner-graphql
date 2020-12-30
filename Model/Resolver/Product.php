@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace Mageplaza\PromoBannerGraphQl\Model\Resolver;
 
+use Exception;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Model\ProductRepository;
 use Magento\Framework\GraphQl\Config\Element\Field;
@@ -77,7 +78,7 @@ class Product implements ResolverInterface
             return $this->helperData->isEnabled() && $product->getExtensionAttributes()
                 ? $product->getExtensionAttributes()->getMpPromoBanners()
                 : [];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new GraphQlInputException(__($e->getMessage()));
         }
     }
