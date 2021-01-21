@@ -6,13 +6,13 @@ Magento Promo Banner GraphQl is a part of Promo Banner extension that add GraphQ
 Run the following command in Magento 2 root folder:
 
 ```
-composer require mageplaza/module-request-for-quote-graphql
+composer require mageplaza/module-promo-banner-graphql
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
 
 **Note:**
-Age Verification GraphQL requires installing [Mageplaza Promo Banner](https://www.mageplaza.com/magento-2-promo-banner/) in your Magento installation.
+Promo Banner GraphQL requires installing [Mageplaza Promo Banner](https://www.mageplaza.com/magento-2-promo-banner/) in your Magento installation.
 
 ## 2. How to use
 
@@ -21,7 +21,7 @@ To perform GraphQL queries in Magento, please do the following requirements:
 - Use Magento 2.3.x or higher. Set your site to [developer mode](https://www.mageplaza.com/devdocs/enable-disable-developer-mode-magento-2.html).
 - Set GraphQL endpoint as `http://<magento2-server>/graphql` in url box, click **Set endpoint**.
   (e.g. `http://dev.site.com/graphql`)
-- To view the queries that the **Mageplaza Age Verification GraphQL** extension supports, you can look in `Docs > Query` in the right corner
+- To view the queries that the **Mageplaza Promo Banner GraphQL** extension supports, you can look in `Docs > Query` in the right corner
 
 ## 3. Devdocs
 
