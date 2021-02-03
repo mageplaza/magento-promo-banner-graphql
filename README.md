@@ -1,4 +1,4 @@
-# Magento Promo Banner GraphQ
+# Magento Promo Banner GraphQL
 
 **Magento 2 Promo Banner GraphQL is now a part of the Mageplaza promo Banner extension that adds GraphQL features. This supports PWA Studio.** 
 
